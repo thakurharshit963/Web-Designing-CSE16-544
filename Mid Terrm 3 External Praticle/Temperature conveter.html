@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Temperature Converter</title>
+<style>
+body{
+    font-family:Arial;
+    background:linear-gradient(135deg,#74ebd5,#9face6);
+    text-align:center;
+    margin-top:80px;
+}
+.container{
+    width:400px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+h2{color:#333}
+input{
+    width:80%;
+    padding:10px;
+    margin:10px;
+    border:2px solid #9face6;
+    border-radius:5px;
+}
+button{
+    padding:10px 15px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    color:white;
+    cursor:pointer;
+}
+button:first-of-type{background:#28a745;}
+button:last-of-type{background:#007bff;}
+
+#result{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:#d63384;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🌡 Temperature Converter</h2>
+
+    <input type="number" id="temp" placeholder="Enter Temperature"><br>
+
+    <button onclick="cToF()">Celsius → Fahrenheit</button>
+    <button onclick="fToC()">Fahrenheit → Celsius</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function cToF(){
+    let c=parseFloat(temp.value);
+    if(isNaN(c)) return result.innerHTML="Enter a valid temperature!";
+    result.innerHTML=`${c} °C = ${((c*9/5)+32).toFixed(2)} °F`;
+}
+
+function fToC(){
+    let f=parseFloat(temp.value);
+    if(isNaN(f)) return result.innerHTML="Enter a valid temperature!";
+    result.innerHTML=`${f} °F = ${((f-32)*5/9).toFixed(2)} °C`;
+}
+</script>
+
+</body>
+</html>
